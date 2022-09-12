@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: image-registry.openshift-image-registry.svc:5000/sandbox/gitops-demo-inventory
+  repository: image-registry.openshift-image-registry.svc:5000/cicd/gitops-demo-inventory
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
@@ -83,4 +83,4 @@ affinity: {}
 
 metadata:
   name: gitops-demo-inventory
-  namespace: sandbox
+  namespace: dev

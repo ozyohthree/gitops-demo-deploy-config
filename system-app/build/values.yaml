@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: gitops-demo-system
+  repository: image-registry.openshift-image-registry.svc:5000/cicd/gitops-demo-system
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
@@ -83,7 +83,7 @@ affinity: {}
 
 metadata:
   name: gitops-demo-system
-  namespace: sandbox
+  namespace: cicd
 
 repository:
   uri: https://github.com/ozyohthree/gitops-demo-system.git
