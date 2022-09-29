@@ -4,13 +4,18 @@ metadata:
   name: {{ .Values.metadata.name }}
   namespace: {{ .Values.metadata.namespace }}
   labels:
+    app.kubernetes.io/component: {{ .Values.metadata.name }}
+    app.kubernetes.io/part-of: {{ .Values.metadata.name }}
     {{- include "deploy.labels" . | nindent 4 }}
+  
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
+      app: {{ .Values.metadata.name }}
+      app.kubernetes.io/name: {{ .Values.metadata.name }}
       {{- include "deploy.selectorLabels" . | nindent 6 }}
   template:
     metadata:
@@ -19,6 +24,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
+        app: {{ .Values.metadata.name }}
+        app.kubernetes.io/name: {{ .Values.metadata.name }}
         {{- include "deploy.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
@@ -36,27 +43,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 9081
+              containerPort:  {{ .Values.image.containerPort }}
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /inventory/systems
-              port: http
-            initialDelaySeconds: 10
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /inventory/systems
-              port: http
-            initialDelaySeconds: 10
-            periodSeconds: 5
-          startupProbe:
-            httpGet:
-              path: /inventory/systems
-              port: http
-            failureThreshold: 30
-            initialDelaySeconds: 20
-            periodSeconds: 10
+          {{- with .Values.probes }}
+          {{- toYaml . | nindent 10 }}
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
