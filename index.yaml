@@ -1,0 +1,25 @@
+apiVersion: v1
+entries:
+  build:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-09-29T19:11:00.511133-04:00"
+    description: A Helm chart for Kubernetes
+    digest: dfb519f20d7f20e25218f5c1761feb8c4dc51a775517010c8fea124c9d4dcf59
+    name: build
+    type: application
+    urls:
+    - https://github.com/ozyohthree/gitops-demo-deploy-config/releases/download/build-0.1.0/build-0.1.0.tgz
+    version: 0.1.0
+  deploy:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-09-29T19:11:00.641033-04:00"
+    description: A Helm chart for Kubernetes
+    digest: 2fbe74642e7e6b42d483dc52d8325aa012f17b2a89da91e015af3c26aea6815e
+    name: deploy
+    type: application
+    urls:
+    - https://github.com/ozyohthree/gitops-demo-deploy-config/releases/download/deploy-0.1.0/deploy-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-09-29T19:11:00.641043-04:00"
