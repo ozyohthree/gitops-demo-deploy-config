@@ -5,10 +5,11 @@
 replicaCount: 1
 
 image:
-  repository: image-registry.openshift-image-registry.svc:5000/cicd/gitops-demo-inventory
+  repository: image-registry.openshift-image-registry.svc:5000/test1/gitops-demo-system
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
+  containerPort: 9080
 
 imagePullSecrets: []
 nameOverride: ""
@@ -38,7 +39,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 9081
+  port: 9080
 
 ingress:
   enabled: false
@@ -82,5 +83,26 @@ tolerations: []
 affinity: {}
 
 metadata:
-  name: gitops-demo-inventory
-  namespace: dev
+  name: gitops-demo-system
+  namespace: test1
+
+probes:
+  livenessProbe:
+    httpGet:
+      path: /system/properties
+      port: http
+    initialDelaySeconds: 10
+    periodSeconds: 5
+  readinessProbe:
+    httpGet:
+      path: /system/properties
+      port: http
+    initialDelaySeconds: 10
+    periodSeconds: 5
+  startupProbe:
+    httpGet:
+      path: /system/properties
+      port: http
+    failureThreshold: 30
+    initialDelaySeconds: 10
+    periodSeconds: 10

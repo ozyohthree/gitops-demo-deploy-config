@@ -18,4 +18,6 @@ README.html
 # Zip files
 *.zip
 
-debug*.yaml
+debug*
+
+.deploy

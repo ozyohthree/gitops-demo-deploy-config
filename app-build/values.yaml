@@ -1,0 +1,20 @@
+# Default values for build.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: gitops-demo-system
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+metadata:
+  name: gitops-demo-system
+  namespace: cicd
+
+repository:
+  uri: https://github.com/ozyohthree/gitops-demo-system.git
+  branch: 
+  directory: /
