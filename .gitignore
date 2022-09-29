@@ -19,3 +19,5 @@ README.html
 *.zip
 
 debug*.yaml
+
+.deploy
