@@ -40,22 +40,22 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: inventory/systems
+              path: /inventory/systems
               port: http
             initialDelaySeconds: 10
             periodSeconds: 5
           readinessProbe:
             httpGet:
-              path: inventory/systems
+              path: /inventory/systems
               port: http
             initialDelaySeconds: 10
             periodSeconds: 5
           startupProbe:
             httpGet:
-              path: inventory/systems
+              path: /inventory/systems
               port: http
             failureThreshold: 30
-            initialDelaySeconds: 10
+            initialDelaySeconds: 20
             periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
