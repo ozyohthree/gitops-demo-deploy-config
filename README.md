@@ -1,6 +1,12 @@
 # gh-pages
 
-- For publishing Helm charts
+- [Current Version info](https://ozyohthree.github.io/gitops-demo-deploy-config/index.yaml)
+
+## Add repo
+```sh
+# Add repo
+$ helm repo add gitops-demo-deploy-config https://ozyohthree.github.io/gitops-demo-deploy-config/
+```
 
 ##  chart releaser
 ```sh
