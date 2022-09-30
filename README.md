@@ -48,7 +48,7 @@ $ helm install system-app https://github.com/ozyohthree/gitops-demo-deploy-confi
 
 ### Overriding namespace
 ```sh
-# If overide namespace for the build, then you have to overide the image location for the deploy
+# If you overide namespace for the build, then you have to overide the image location for the deploy or update service account permissions as below
 # For example if using namespace DEV
 # Build
 $ helm install system-app-build helm-charts/app-build --set metadata.namespace=DEV -n DEV
