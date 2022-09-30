@@ -38,7 +38,7 @@ $ helm install system-app https://github.com/ozyohthree/gitops-demo-deploy-confi
 age.repository=quay.io/ohthree/gitops-demo-system
 ```
 
-# To enable deployment from a cicd namespace
+# To enable deployment from builds done in namespace called cicd
 
 - Run the ```update-permissions.sh``` script to give the dev namespace default serviceaccount permission to pull images from the cicd namespace
 
