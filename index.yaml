@@ -3,6 +3,16 @@ entries:
   build:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-09-30T09:15:14.635012-04:00"
+    description: A Helm chart for S2I Builds for System and Inventory Apps
+    digest: 5e1b454c358389a0708789d75ea89eba3559cd2f4414ba87d2dcb2766d37c18f
+    name: build
+    type: application
+    urls:
+    - https://github.com/ozyohthree/gitops-demo-deploy-config/releases/download/build-0.1.2/build-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-09-30T08:23:54.208104-04:00"
     description: A Helm chart for Kubernetes
     digest: aef9ab8f9de38a1db6a35aa602b58b73e2d85cc8585b40c610d400e2d192d54f
@@ -14,6 +24,16 @@ entries:
   deploy:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-09-30T09:15:14.743521-04:00"
+    description: A Helm chart for Deploying System and Inventory Openliberty Apps
+    digest: 2e22a6b7aa303389c8d068461203db0d57f88e8711a5fa0909473de83104d015
+    name: deploy
+    type: application
+    urls:
+    - https://github.com/ozyohthree/gitops-demo-deploy-config/releases/download/deploy-0.1.2/deploy-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-09-30T08:23:54.326486-04:00"
     description: A Helm chart for Kubernetes
     digest: 9b32286c834dff6de727d85aeb5f4a1a2e6cbfb4becde624963e9fcdecfa9dec
@@ -22,4 +42,4 @@ entries:
     urls:
     - https://github.com/ozyohthree/gitops-demo-deploy-config/releases/download/deploy-0.1.1/deploy-0.1.1.tgz
     version: 0.1.1
-generated: "2022-09-30T08:23:54.326496-04:00"
+generated: "2022-09-30T09:15:14.743539-04:00"
