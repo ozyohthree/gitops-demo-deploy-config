@@ -1,6 +1,5 @@
-# gh-pages
 
-- [Current Version info](https://ozyohthree.github.io/gitops-demo-deploy-config/index.yaml)
+- [Current Helm Charts Version info](https://ozyohthree.github.io/gitops-demo-deploy-config/index.yaml)
 
 ## Add repo
 ```sh
