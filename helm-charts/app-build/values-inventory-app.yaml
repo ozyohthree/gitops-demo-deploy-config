@@ -2,17 +2,13 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
-
 image:
   repository: gitops-demo-inventory
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
 metadata:
   name: gitops-demo-inventory
-  namespace: test-system
+  namespace: test
 
 repository:
   uri: https://github.com/ozyohthree/gitops-demo-inventory.git

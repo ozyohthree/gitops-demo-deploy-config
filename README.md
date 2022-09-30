@@ -14,8 +14,11 @@ There are 3 Ways to use the Charts;
 
 1. Clone the repo then then run helm install 
 ```sh
-# Install System App repo to the test namespace (default) or override namespace value as follows
-helm install system-app helm-charts/app-deploy --set metadata.namespace=test-helm-repo
+# Install System App repo to the test namespace (default) or override namespace
+# Build
+$ helm install system-app-build helm-charts/app-build
+# Deploy
+$ helm install system-app helm-charts/app-deploy
 ```
 
 2. Add repo to your repositories then install chart as follows;
@@ -28,17 +31,34 @@ NAME                                            CHART VERSION   APP VERSION     
 gitops-demo-deploy-config/build                 0.1.0           1.16.0          A Helm chart for Kubernetes                       
 gitops-demo-deploy-config/deploy                0.1.0           1.16.0          A Helm chart for Kubernetes 
 
-# Install System App repo to the test name (default) or override namespace value as follows
-$ helm install system-app gitops-demo-deploy-config/deploy --set metadata.namespace=test-helm-repo
+# Build System App repo to the test name (default) or override namespace value as follows
+$ helm install system-app-build gitops-demo-deploy-config/build 
+# Deploy
+$ helm install system-app gitops-demo-deploy-config/deploy
 ```
 
 3. Install using the tars 
 ```sh
-$ helm install system-app https://github.com/ozyohthree/gitops-demo-deploy-config/releases/download/deploy-0.1.0/deploy-0.1.0.tgz --set metadata.namespace=test-helm-repo --set im
-age.repository=quay.io/ohthree/gitops-demo-system
+# Build
+$ helm install system-app-build https://github.com/ozyohthree/gitops-demo-deploy-config/releases/download/build-0.1.0/build-0.1.0.tgz
+
+# Deploy
+$ helm install system-app https://github.com/ozyohthree/gitops-demo-deploy-config/releases/download/deploy-0.1.0/deploy-0.1.0.tgz 
 ```
 
-# To enable deployment from builds done in namespace called cicd
+### Overriding namespace
+```sh
+# If overide namespace for the build, then you have to overide the image location for the deploy
+# For example if using namespace DEV
+# Build
+$ helm install system-app-build helm-charts/app-build --set metadata.namespace=DEV -n DEV
+# Deploy
+$ helm install system-app helm-charts/app-deploy --set metadata.namespace=DEV --set image.repository=image-registry.openshift-image-registry.svc:5000/DEV/gitops-demo-system
+
+```
+
+
+# To enable deployment for images in a different namespace registry for example 'cicd'
 
 - Run the ```update-permissions.sh``` script to give the dev namespace default serviceaccount permission to pull images from the cicd namespace
 

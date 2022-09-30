@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: image-registry.openshift-image-registry.svc:5000/test-system/gitops-demo-inventory
+  repository: image-registry.openshift-image-registry.svc:5000/test/gitops-demo-inventory
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
@@ -63,11 +63,11 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-    cpu: 700m
-    memory: 1Gi
-  requests:
     cpu: 500m
     memory: 512Mi
+  requests:
+    cpu: 300m
+    memory: 128Mi
 
 autoscaling:
   enabled: false
@@ -84,7 +84,7 @@ affinity: {}
 
 metadata:
   name: gitops-demo-inventory
-  namespace: test1
+  namespace: test
 
 probes:
   livenessProbe:
