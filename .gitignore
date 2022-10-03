@@ -9,7 +9,7 @@ target/
 .factorypath
 MANIFEST.MF
 
-
+bin/
 
 # MacOS system files
 .DS_Store
