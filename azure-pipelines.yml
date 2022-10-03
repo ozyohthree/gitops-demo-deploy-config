@@ -4,12 +4,17 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  branches:
+    include: 
+    - main
+    - release/*
+    exclude:
+    - release/old*
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- bash: echo "Trigger Release pipeline!"
   displayName: 'Run a one-line script'
 
